@@ -9,22 +9,19 @@
     <div id="menu-respon-wp">
         <ul class="" id="main-menu-respon">
             <li>
-                <a href="?page=home" title="Trang chủ">Trang chủ</a>
+                <a href="?" title="Trang chủ">Trang chủ</a>
             </li>
             <li>
-                <a href="?page=detail_news" title="Giới thiệu">Giới thiệu</a>
+                <a href="?mod=page&act=detail&id=1" title="Giới thiệu">Giới thiệu</a>
             </li>
             <li>
-                <a href="?page=category_product" title="">Laptop</a>
+                <a href="?mod=product&act=main&cat_id=1" title="">Dien thoai</a>
             </li>
             <li>
-                <a href="?page=category_product" title="">Điện thoại</a>
+                <a href="?mod=product&act=main&cat_id=2" title="">Macbook</a>
             </li>
             <li>
-                <a href="?page=category_product" title="">Máy tính bảng</a>
-            </li>
-            <li>
-                <a href="?page=detail_news" title="Liên hệ">Liên hệ</a>
+                <a href="?mod=page&act=detail&id=2" title="Liên hệ">Liên hệ</a>
             </li>
         </ul>
     </div>

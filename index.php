@@ -1,13 +1,18 @@
 <?php
+session_start();
+ob_start();
+
 //data
 require 'data/pages.php';
 require 'data/product.php';
 
 //lib
 require 'lib/data.php';
+require 'lib/url.php';
 require 'lib/number.php';
 require 'lib/pages.php';
 require 'lib/product.php';
+require 'lib/cart.php';
 
 $mod = isset($_GET['mod']) ? $_GET['mod'] : 'home';
 $act = isset($_GET['act']) ? $_GET['act'] : 'main';

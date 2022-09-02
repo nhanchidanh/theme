@@ -25,7 +25,14 @@
                         <div id="cart-wp" class="fl-right">
                             <a href="?mod=cart&act=show" title="" id="btn-cart">
                                 <span id="icon"><img src="public/images/icon-cart.png" alt=""></span>
-                                <span id="num">5</span>
+                                <?php
+                                $num_order = get_num_order_cart();
+                                if($num_order > 0) {
+                                    ?>
+                                    <span id="num"><?php echo $num_order; ?></span>
+                                    <?php
+                                }
+                                ?>
                             </a>
                         </div>
                     </div>

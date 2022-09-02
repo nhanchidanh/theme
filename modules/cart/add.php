@@ -2,7 +2,7 @@
 echo "add cart";
 //Lay info product can them vao gio
 $id = (int)$_GET['id'];
-$item = get_product_by_id($id);
+add_cart($id);
 
-show_array($item);
+redirect('?mod=cart&act=show')
 ?>
