@@ -16,6 +16,9 @@
          <li>
             <a href="?mod=page&act=detail&id=2" title="Liên hệ">Liên hệ</a>
          </li>
+         <li>
+            <a href="?mod=users&act=main" title="Thành viên">Thành viên</a>
+         </li>
       </ul>
    </div>
 </div>

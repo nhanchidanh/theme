@@ -2,6 +2,9 @@
 session_start();
 ob_start();
 
+//database
+require 'db/connect.php';
+
 //data
 require 'data/pages.php';
 require 'data/product.php';
