@@ -66,7 +66,7 @@ function get_total_cart() {
    return false;
 }
 
-function delete_cart($id) {
+function delete_cart($id = '') {
    //Xoa sp co $id trong cart
    if (isset($_SESSION['cart'])) {
       if(!empty($id)) {
@@ -77,4 +77,12 @@ function delete_cart($id) {
       }
    }
    
+}
+
+function update_cart($qty) {
+   foreach ($qty as $id => $new_qty) {
+      $_SESSION['cart']['buy'][$id]['qty'] = $new_qty;
+      $_SESSION['cart']['buy'][$id]['sub_total'] = $new_qty * $_SESSION['cart']['buy'][$id]['price'];
+   }
+   update_info_cart();
 }
