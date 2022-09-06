@@ -20,7 +20,7 @@ foreach ($list_users as &$user) {
     $user['url_delete'] = "?mod=users&act=delete&id={$user['user_id']}";
 }
 
-unset ($user);
+unset($user);
 
 
 ?>
@@ -71,18 +71,37 @@ unset ($user);
 
                                 </tbody>
                             </table>
-                            <p>Có <?php echo $num_rows; ?> thành viên</p>
+                            <p style="float: left;">Có <?php echo $num_rows; ?> thành viên</p>
+                            <style>
+                                /* pagging CSS */
+                                .pagging {
+                                    float: right;
 
+                                }
+
+                                .pagging li {
+                                    float: left;
+                                }
+
+                                .pagging li a {
+                                    display: block;
+                                    padding: 5px 6px;
+                                }
+                                .active {
+                                    color: red;
+                                }
+                            </style>
                             <ul class="pagging">
                                 <li><a href="#">Trước</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
+                                <li><a class="active" href="?mod=users&act=main&page=1">1</a></li>
+                                <li><a href="?mod=users&act=main&page=2">2</a></li>
+                                <li><a href="?mod=users&act=main&page=3">3</a></li>
+                                <li><a href="?mod=users&act=main&page=4">4</a></li>
                                 <li><a href="#">Sau</a></li>
                             </ul>
+                            <div class="clearfix"></div>
                         <?php
-                        }else {
+                        } else {
                             print "Không có thành viên nào.";
                         }
                         ?>
