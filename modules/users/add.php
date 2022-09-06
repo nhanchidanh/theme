@@ -56,12 +56,24 @@ if (isset($_POST['btn_add'])) {
 
    //Ket luan
    if (empty($error)) {
-      $sql = "INSERT INTO `tbl_users` (`fullname`,`email`,`password`,`username`,`gender`)" . "VALUES ('{$fullname}','{$email}',md5('{$password}'),'{$username}','{$gender}')";
-      if (mysqli_query($conn, $sql)) {
-         $alert['success'] = "Thêm dữ liệu thành công";
-      } else {
-         echo "Loi" . mysqli_error($conn);
+      // $sql = "INSERT INTO `tbl_users` (`fullname`,`email`,`password`,`username`,`gender`)" . "VALUES ('{$fullname}','{$email}',md5('{$password}'),'{$username}','{$gender}')";
+      // if (mysqli_query($conn, $sql)) {
+      //    $alert['success'] = "Thêm dữ liệu thành công";
+      // } else {
+      //    echo "Loi" . mysqli_error($conn);
+      // }
+      $data = array(
+         'fullname' => $fullname,
+         'email' => $email,
+         'password' => $password,
+         'username' => $username,
+         'gender' => $gender
+      );
+      $id_insert = db_insert("tbl_users", $data);
+      if(!empty($id_insert)){
+         $alert['success'] = "Thêm mới thành công";
       }
+      // echo $id_insert;
    }
 }
 ?>

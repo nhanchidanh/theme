@@ -1,15 +1,28 @@
 <?php
 //Xuat du lieu
-$sql = "SELECT * FROM tbl_users";
-$result = mysqli_query($conn, $sql);
-$list_users = array();
-$num_rows = mysqli_num_rows($result);
-if ($num_rows > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $list_users[] = $row;
-    }
-}
+// $sql = "SELECT * FROM tbl_users";
+// $result = mysqli_query($conn, $sql);
+// $list_users = array();
+// $num_rows = mysqli_num_rows($result);
+// if ($num_rows > 0) {
+//     while ($row = mysqli_fetch_assoc($result)) {
+//         $list_users[] = $row;
+//     }
+// }
+
+$list_users = db_fetch_array("SELECT * FROM `tbl_users`");
+$num_rows = db_num_rows("SELECT * from tbl_users");
+
 // show_array($list_users);
+
+foreach ($list_users as &$user) {
+    $user['url_update'] = "?mod=users&act=update&id={$user['user_id']}";
+    $user['url_delete'] = "?mod=users&act=delete&id={$user['user_id']}";
+}
+
+unset ($user);
+
+
 ?>
 <div id="main-content-wp" class="detail-news-page">
     <div class="wp-inner clearfix">
@@ -34,6 +47,7 @@ if ($num_rows > 0) {
                                         <th>Username</th>
                                         <th>Email</th>
                                         <th>Giới tính</th>
+                                        <th>Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,7 +62,8 @@ if ($num_rows > 0) {
                                             <td><?php echo $user['fullname']; ?></td>
                                             <td><?php echo $user['username']; ?></td>
                                             <td><?php echo $user['email']; ?></td>
-                                            <td><?php echo $user['gender']; ?></td>
+                                            <td><?php echo show_gender($user['gender']); ?></td>
+                                            <td><a href="<?php echo $user['url_update'] ?>">Sửa</a> | <a href="<?php echo $user['url_delete'] ?>">Xóa</a></td>
                                         </tr>
                                     <?php
                                     }
@@ -57,7 +72,18 @@ if ($num_rows > 0) {
                                 </tbody>
                             </table>
                             <p>Có <?php echo $num_rows; ?> thành viên</p>
+
+                            <ul class="pagging">
+                                <li><a href="#">Trước</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">Sau</a></li>
+                            </ul>
                         <?php
+                        }else {
+                            print "Không có thành viên nào.";
                         }
                         ?>
 
