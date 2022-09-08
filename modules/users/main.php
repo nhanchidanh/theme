@@ -10,8 +10,22 @@
 //     }
 // }
 
-$list_users = db_fetch_array("SELECT * FROM `tbl_users`");
-$num_rows = db_num_rows("SELECT * from tbl_users");
+
+$num_rows = db_num_rows("SELECT * from tbl_users where gender = 'male'");
+
+//So luong ban ghi tren trang
+$num_per_page = 6;
+//tong so ban ghi
+$total_row = $num_rows;
+
+//Tong so trang
+$num_page = ceil($total_row/$num_per_page);
+
+
+$page = isset($_GET['page'])?(int)$_GET['page']:1;
+$start = ($page-1)*$num_per_page;
+
+$list_users = get_users($start, $num_per_page, "gender = 'male'");
 
 // show_array($list_users);
 
@@ -52,7 +66,7 @@ unset($user);
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $temp = 0;
+                                    $temp = $start;
                                     foreach ($list_users as $user) {
                                         $temp++;
                                     ?>
