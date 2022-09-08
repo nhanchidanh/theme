@@ -14,6 +14,7 @@ require 'data/product.php';
 require 'lib/data.php';
 require 'lib/url.php';
 require 'lib/users.php';
+require 'lib/pagging.php';
 require 'lib/number.php';
 require 'lib/pages.php';
 require 'lib/product.php';

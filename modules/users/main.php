@@ -11,10 +11,10 @@
 // }
 
 
-$num_rows = db_num_rows("SELECT * from tbl_users where gender = 'male'");
+$num_rows = db_num_rows("SELECT * from tbl_users ");
 
 //So luong ban ghi tren trang
-$num_per_page = 6;
+$num_per_page = 5;
 //tong so ban ghi
 $total_row = $num_rows;
 
@@ -25,7 +25,7 @@ $num_page = ceil($total_row/$num_per_page);
 $page = isset($_GET['page'])?(int)$_GET['page']:1;
 $start = ($page-1)*$num_per_page;
 
-$list_users = get_users($start, $num_per_page, "gender = 'male'");
+$list_users = get_users($start, $num_per_page);
 
 // show_array($list_users);
 
@@ -102,17 +102,10 @@ unset($user);
                                     padding: 5px 6px;
                                 }
                                 .active {
-                                    color: red;
+                                    border: 2px solid #ccc;
                                 }
                             </style>
-                            <ul class="pagging">
-                                <li><a href="#">Trước</a></li>
-                                <li><a class="active" href="?mod=users&act=main&page=1">1</a></li>
-                                <li><a href="?mod=users&act=main&page=2">2</a></li>
-                                <li><a href="?mod=users&act=main&page=3">3</a></li>
-                                <li><a href="?mod=users&act=main&page=4">4</a></li>
-                                <li><a href="#">Sau</a></li>
-                            </ul>
+                            <?php echo get_pagging($num_page, $page, "?mod=users&act=main"); ?>
                             <div class="clearfix"></div>
                         <?php
                         } else {
