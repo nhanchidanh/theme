@@ -1,4 +1,6 @@
 <?php
+require './inc/header.php';
+
 //get id tu url
 $id = (int)$_GET['id'];
 //Xay dung ham
@@ -24,3 +26,6 @@ $item = get_page_by_id($id);
         </div>
     </div>
 </div>
+<?php
+require './inc/footer.php';
+?>

@@ -1,4 +1,6 @@
 <?php
+require './inc/header.php';
+
 //Xuat du lieu
 // $sql = "SELECT * FROM tbl_users";
 // $result = mysqli_query($conn, $sql);
@@ -35,7 +37,7 @@ foreach ($list_users as &$user) {
 }
 
 unset($user);
-
+?>
 
 ?>
 <div id="main-content-wp" class="detail-news-page">
@@ -119,3 +121,7 @@ unset($user);
         </div>
     </div>
 </div>
+
+<?php
+require './inc/footer.php';
+?>

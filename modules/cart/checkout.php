@@ -1,4 +1,6 @@
 <?php
+require './inc/header.php';
+
 $list_buy = get_list_buy_cart();
 ?>
 
@@ -116,3 +118,6 @@ $list_buy = get_list_buy_cart();
       </div>
    </div>
 </div>
+<?php
+require './inc/footer.php';
+?>

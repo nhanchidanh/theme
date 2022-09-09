@@ -1,4 +1,6 @@
 <?php
+require './inc/header.php';
+
 $cat_id = (int) $_GET['cat_id'];
 // echo $cat_id;
 //Lay thong tin danh muc
@@ -62,3 +64,7 @@ $list_item = get_list_product_by_cat_id($cat_id);
         </div>
     </div>
 </div>
+
+<?php
+require './inc/footer.php';
+?>

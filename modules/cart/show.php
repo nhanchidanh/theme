@@ -1,4 +1,5 @@
 <?php
+require './inc/header.php';
 $list_buy = get_list_buy_cart();
 // show_array($list_buy);
 ?>
@@ -93,3 +94,7 @@ $list_buy = get_list_buy_cart();
       ?>
    </div>
 </div>
+
+<?php
+require './inc/footer.php';
+?>

@@ -1,4 +1,6 @@
 <?php
+require './inc/header.php';
+
 $id = (int)$_GET['id'];
 // echo $id;
 //Lay san pham theo id
@@ -45,3 +47,7 @@ $item = get_product_by_id($id);
         </div>
     </div>
 </div>
+
+<?php
+require './inc/footer.php';
+?>

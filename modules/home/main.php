@@ -1,4 +1,6 @@
 <?php
+require './inc/header.php';
+
 $list_mobile = get_list_product_by_cat_id(1);
 $list_macbook = get_list_product_by_cat_id(2);
 
@@ -70,3 +72,7 @@ $info_cat_macbook = get_info_cat(2);
         </div>
     </div>
 </div>
+
+<?php
+require './inc/footer.php';
+?>

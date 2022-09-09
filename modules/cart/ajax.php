@@ -4,6 +4,7 @@ $qty = $_POST['qty'];
 
 //Lay thong tin san pham
 $item = get_product_by_id($id);
+// show_array($item);
 
 if(isset($_SESSION['cart']) && array_key_exists($id, $_SESSION['cart']['buy'])) {
     //cap nhat so luong
@@ -24,6 +25,7 @@ if(isset($_SESSION['cart']) && array_key_exists($id, $_SESSION['cart']['buy'])) 
         'sub_total' => currency_format($sub_total),
         'total' => currency_format($total)
     );
+    
 
     echo json_encode($data);
 }

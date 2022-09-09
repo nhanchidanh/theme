@@ -25,7 +25,7 @@ $mod = isset($_GET['mod']) ? $_GET['mod'] : 'home';
 $act = isset($_GET['act']) ? $_GET['act'] : 'main';
 $path = "modules/{$mod}/{$act}.php";
 
-require './inc/header.php';
+// require './inc/header.php';
 
 
 if (file_exists($path)) {
@@ -34,5 +34,5 @@ if (file_exists($path)) {
     require "./modules/404.php";
 }
 
-require './inc/footer.php';
+// require './inc/footer.php';
 ?>

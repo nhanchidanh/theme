@@ -48,9 +48,9 @@ $(document).ready(function () {
             data: data,
             dataType: "json",
             success: function (data) {
-                // $("#sub-total-" + id).text(data.sub_total);
-                // $("#total-price span").text(data.total);
-                console.log(data);
+                $("#sub-total-" + id).text(data.sub_total);
+                $("#total-price span").text(data.total);
+                
             },
             error: function (xhr,ajaxOptions, thrownError) {
                 console.log(xhr.status);
