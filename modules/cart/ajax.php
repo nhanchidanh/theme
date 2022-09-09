@@ -1,8 +1,10 @@
 <?php
 $id = $_POST['id'];
 $qty = $_POST['qty'];
+
 //Lay thong tin san pham
 $item = get_product_by_id($id);
+
 if(isset($_SESSION['cart']) && array_key_exists($id, $_SESSION['cart']['buy'])) {
     //cap nhat so luong
     $_SESSION['cart']['buy'][$id]['qty'] = $qty;
@@ -25,3 +27,4 @@ if(isset($_SESSION['cart']) && array_key_exists($id, $_SESSION['cart']['buy'])) 
 
     echo json_encode($data);
 }
+?>

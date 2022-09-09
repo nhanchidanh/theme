@@ -34,29 +34,28 @@ $(document).ready(function () {
         }
     });
     //update cart ajax
-    $('.num-order').change(function (e) { 
-        e.preventDefault();
+    $('.num-order').click(function () {
         var id = $(this).attr('data-id');
         var qty = $(this).val();
         var data = {
-            id : id,
-            qty : qty
+            id: id,
+            qty: qty
         };
-        // console.log(data);
+        
         $.ajax({
-            type: "POST",
-            url: "?mod=cart&act=update_ajax",
+            method: "POST",
+            url: "?mod=cart&act=ajax",
             data: data,
             dataType: "json",
             success: function (data) {
-                $("#sub-total-"+id).text(data.sub_total);
-                $("#total-price span").text(data.total);
+                // $("#sub-total-" + id).text(data.sub_total);
+                // $("#total-price span").text(data.total);
                 console.log(data);
             },
-            // error: function(xhr, thrownError){
-            //     console.log(xhr.status);
-            //     console.log(thrownError);
-            // }
+            error: function (xhr,ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
         });
     });
 });
