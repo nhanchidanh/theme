@@ -33,4 +33,30 @@ $(document).ready(function () {
             $(this).parent('li').find('.sub-menu').slideDown();
         }
     });
+    //update cart ajax
+    $('.num-order').change(function (e) { 
+        e.preventDefault();
+        var id = $(this).attr('data-id');
+        var qty = $(this).val();
+        var data = {
+            id : id,
+            qty : qty
+        };
+        // console.log(data);
+        $.ajax({
+            type: "POST",
+            url: "?mod=cart&act=update_ajax",
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                $("#sub-total-"+id).text(data.sub_total);
+                $("#total-price span").text(data.total);
+                console.log(data);
+            },
+            // error: function(xhr, thrownError){
+            //     console.log(xhr.status);
+            //     console.log(thrownError);
+            // }
+        });
+    });
 });
